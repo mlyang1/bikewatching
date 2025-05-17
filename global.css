@@ -1,0 +1,89 @@
+header {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+    margin-left: auto;
+}
+    
+body {
+  font: 100%/1.5 system-ui, sans-serif;
+  display: flex;
+  flex-flow: column;
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
+
+    svg {
+        pointer-events: none;
+
+        circle {
+            fill-opacity: 60%;
+            fill: steelblue;
+            stroke: white;
+            pointer-events: auto;
+        }
+    }
+}
+
+time {
+    display: block;
+}
+
+em {
+    display: block;
+    fill-opacity: 60%;
+}
+
+circle {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+        in oklch,
+        var(--color-departures) calc(100% * var(--departure-ratio)),
+        var(--color-arrivals)
+        );
+    fill: var(--color);
+}
+
+legend {
+    display: flex;
+    margin-block: auto;
+
+    gap: 20px;
+    align-items: center;
+}
+
+.legend > div {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+        in oklch,
+        var(--color-departures) calc(100% * var(--departure-ratio)),
+        var(--color-arrivals)
+        );
+
+    display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+
+
+.legend > div::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color:color-mix(
+        in oklch,
+        var(--color-departures) calc(100% * var(--departure-ratio)),
+        var(--color-arrivals)
+        );;
+}
+
+.legend.label {
+  font-size: 16px;
+  font-weight: bold;
+}
