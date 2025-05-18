@@ -1,30 +1,12 @@
 header {
-    display: flex;
+    display: flexbox;
     gap: 1em;
     align-items: baseline;
-    margin-left: auto;
+    margin: auto;
 }
-    
-body {
-  font: 100%/1.5 system-ui, sans-serif;
-  display: flex;
-  flex-flow: column;
-  max-width: 80em;
-  min-height: 100vh;
-  box-sizing: border-box;
-  margin: auto;
-  padding: 1em;
 
-    svg {
-        pointer-events: none;
-
-        circle {
-            fill-opacity: 60%;
-            fill: steelblue;
-            stroke: white;
-            pointer-events: auto;
-        }
-    }
+input {
+    display: block; 
 }
 
 time {
@@ -33,28 +15,58 @@ time {
 
 em {
     display: block;
-    fill-opacity: 60%;
+    color: #ccc; 
+    font-style: italic
 }
 
-circle {
-    --color-departures: steelblue;
-    --color-arrivals: darkorange;
-    --color: color-mix(
-        in oklch,
-        var(--color-departures) calc(100% * var(--departure-ratio)),
-        var(--color-arrivals)
-        );
-    fill: var(--color);
+
+html,
+body {
+  margin: 0;
+  padding: 5;
+  height: 100%;
+  width: 100%;
+  /* justify-content: center; Center horizontally */
+  /* align-items: center; Center vertically */
+}
+    
+body {
+  font: 100%/1.5 system-ui, sans-serif;
+  /* display: flex;
+  flex-flow: column; */
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
+
+    
 }
 
-legend {
-    display: flex;
-    margin-block: auto;
+
+
+.legend {
+    /* display: flex;
+    margin-block: auto; */
 
     gap: 20px;
     align-items: center;
+    margin: auto;
+    float: left;
+
+    margin-top: 20px;
 }
 
+/* Legend text that says LEGEND */
+.legend > label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ccc;
+
+    display: flex;
+}
+
+/* Swatches */
 .legend > div {
     --color-departures: steelblue;
     --color-arrivals: darkorange;
@@ -65,25 +77,20 @@ legend {
         );
 
     display: flex;
-  gap: 5px;
-  align-items: center;
+    gap: 5px;
 }
 
-
-
+/* also Swatches */
 .legend > div::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color:color-mix(
-        in oklch,
-        var(--color-departures) calc(100% * var(--departure-ratio)),
-        var(--color-arrivals)
-        );;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color:color-mix(
+            in oklch,
+            var(--color-departures) calc(100% * var(--departure-ratio)),
+            var(--color-arrivals)
+            );;
 }
 
-.legend.label {
-  font-size: 16px;
-  font-weight: bold;
-}
+
